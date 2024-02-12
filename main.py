@@ -52,6 +52,9 @@ if uploaded_files:
     dataF['embeddings'] = dataF['text'].apply(embed_text)    
     query = st.chat_input(placeholder ='Please type in your question')
     if query: 
+        with st.chat_message("user"):
+            st.write(query)
+            # st.line_chart(np.random.randn(30, 3))
         response = rag(query)
         # st.write(dataF)
         st.markdown(response)
